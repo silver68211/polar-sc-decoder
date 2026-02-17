@@ -23,9 +23,9 @@ def polar_code_construct(N, K, method='bhattacharyya', design_snr=0.0):
     Returns
     -------
     frozen_bits : ndarray
-        Indices of frozen bit positions.
+        Indices of frozen bit positions (sorted).
     info_bits : ndarray
-        Indices of information bit positions.
+        Indices of information bit positions (sorted).
     """
     if N <= 0 or (N & (N - 1)) != 0:
         raise ValueError(f"N must be a power of 2, got {N}")
@@ -42,7 +42,7 @@ def polar_code_construct(N, K, method='bhattacharyya', design_snr=0.0):
         raise ValueError(f"Unknown construction method: {method}")
     
     # Select K most reliable positions for information bits
-    info_bits = np.argsort(reliabilities)[-K:]
+    info_bits = np.sort(np.argsort(reliabilities)[-K:])
     frozen_bits = np.setdiff1d(np.arange(N), info_bits)
     
     return frozen_bits, info_bits
@@ -114,4 +114,5 @@ def _phi(x):
 
 def _phi_inv(y):
     """Inverse of phi function (approximate)."""
+    y = np.clip(y, 1e-10, 1 - 1e-10)  # Avoid log(0)
     return np.where(y < 0.5, -np.log(y), -np.log(1 - y))
