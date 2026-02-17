@@ -1,5 +1,5 @@
 
-# Decoder-Aware Polar Code Construction under SC Decoding
+# New Constructions of Polar Code Based on Refined Error Probability Analysis
 
 ### 📡 IEEE GLOBECOM 2025 — Official Implementation
 
