@@ -107,8 +107,14 @@ def _ga_construction(N, design_snr):
 
 
 def _phi(x):
-    """Helper function for GA construction."""
-    return np.where(x < 10, np.exp(-x) * (1 - np.exp(-x)), 
+    """
+    Helper function for GA construction.
+    
+    Approximation of the φ function used in Gaussian approximation.
+    For numerical stability, uses different formulas for large and small x.
+    """
+    PHI_THRESHOLD = 10  # Threshold for numerical stability in φ approximation
+    return np.where(x < PHI_THRESHOLD, np.exp(-x) * (1 - np.exp(-x)), 
                     np.exp(-x))
 
 
