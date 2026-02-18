@@ -19,3 +19,11 @@ This project provides:
 The implementation bridges theoretical error analysis and practical SC decoder behavior, enabling decoder-aware polar code design.
 
 ---
+
+## Contact
+
+For questions, suggestions, or collaboration inquiries, please open a GitHub issue.
+
+For direct communication, please email:
+hnksm@connect.ust.hk
+
