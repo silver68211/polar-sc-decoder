@@ -3,7 +3,7 @@ import os
 import numpy as np
 
 from SCDecoder import PolarSCDecoder
-from utiles import generate_5g_ranking
+from utils import generate_5g_ranking
 
 
 def awgn_bpsk_channel(codeword_bits: np.ndarray, sigma: float) -> np.ndarray:
@@ -197,5 +197,6 @@ if __name__ == "__main__":
 
     
     
+
 
 
